@@ -1,0 +1,67 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Docker login",
+        "type": "shell",
+        "command": "docker",
+        "args": [
+          "login"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "group": "build"
+      },
+      {
+        "label": "Docker build plantuml",
+        "type": "shell",
+        "command": "docker",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "args": [
+          "build","-t","tantao700/plantuml-alpine","."
+        ],
+        "group": "build"
+      },
+      {
+        "label": "Docker push",
+        "type": "shell",
+        "command": "docker",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "args": [
+          "push","tantao700/plantuml-alpine"
+        ],
+        "group": "build"
+      },
+      {
+        "label": "rsync posts",
+        "type": "shell",
+        "command": "rsync",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "args": [
+          "-avzh","--progress","--delete","${workspaceFolder}/posts","root@xtaoo.cn:/root/"
+        ],
+        "group": "none"
+      },
+      {
+        "label": "reload bgom",
+        "type": "shell",
+        "command": "curl",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "args": [
+          "http://localhost:8080/status?action=reload"
+        ],
+        "group": "none"
+      },
+    ]
+  }

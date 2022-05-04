@@ -1,0 +1,91 @@
+{{define "list"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="/static/github.css?1=1">
+    <style>
+        table {
+            margin: 0 auto;
+            width: 100% !important;
+            display: inline-table !important;
+        }
+
+        th {
+            width: 25% !important;
+        }
+
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0d1117;
+            }
+        }
+    </style>
+</head>
+
+<body class="center">
+
+{{template "header" . }}
+    <div class="markdown-body" style="padding: 10px;min-height: 800px; ">
+
+        <table class="aui filebrowser-table" id="browse-table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th class="name">Name</th>
+                    <th class="summary">Summary</th>
+                    <th class="tags">Tags</th>
+                    <th class="time">Time</th>
+                </tr>
+            </thead>
+            <tbody style="margin: 5px;">
+                {{range . }}
+                <tr class="file file-row">
+                    <td class="item-name">
+                        <a href="/post/{{.Slug}}">{{.Title}}</a>
+                    </td>
+                    <td class="message">
+                        <a href="#">{{.Summary}}</a>
+                    </td>
+                    <td class="file-size">
+                        {{range .Tags}}
+                        <a href="/tag/{{.}}" target="_blank" rel="noopener noreferrer">#{{.}}&nbsp;&nbsp; </a> 
+                        {{end}}
+                    </td>
+                    <td class="timestamp">{{.Time}}</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+        <div class="paginate-container">
+            <div role="navigation" aria-label="Pagination" class="pagination">
+                <span class="previous_page disabled">Previous</span> 
+                <em class="current" data-total-pages="50">1</em>
+                     <a
+                    rel="next" aria-label="Page 2"
+                    href="#">2</a> <a
+                    aria-label="Page 3"
+                    href="#">3</a> <a
+                    aria-label="Page 4"
+                    href="#">4</a> <a
+                    aria-label="Page 5"
+                    href="#">5</a> 
+                    <span class="gap">…</span> 
+                    <a aria-label="Page 49"
+                    href="#">49</a> <a
+                    aria-label="Page 50"
+                    href="#">50</a> <a
+                    class="next_page" rel="next"
+                    href="#">Next</a></div>
+        </div>
+    </div>
+
+    {{template "footer" . }}
+</body>
+
+</html>
+{{end}}

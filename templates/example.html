@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        .center {
+            border: 1px ;
+            text-align: center;
+        }
+
+        tr td {
+            min-width: 150px;
+        }
+
+        .item-name {
+            text-align: left;
+        }
+
+        .file-size {
+            text-align: left;
+        }
+
+        .message {
+            text-align: left;
+        }
+
+        .timestamp {
+            text-align: left;
+        }
+
+        .center table {
+            line-height: 1.5;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        ul.pagination {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.pagination li {
+            display: inline;
+        }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            /* border: solid 1px; */
+            padding: 4px 8px;
+            margin-left: 10px;
+            /* background-color: azure; */
+            text-decoration: none;
+        }
+        .active{
+            color: rgb(202, 25, 25);
+            font-weight: bold;
+            text-decoration-line: underline !important;
+        }
+
+        .solid{
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body class="center" style="min-height: 600px;">
+
+    <div style="padding: 10px;">
+        <table class="aui filebrowser-table" id="browse-table">
+            <thead>
+                <tr>
+                    <th id="group" scope="col" class="item-name">Source</th>
+                    <th id="group" scope="col" class="message">Description</th>
+                    <th id="group" scope="col" class="file-size">Size</th>
+                    <th id="group" scope="col" class="timestamp">Last Modified</th>
+                </tr>
+            </thead>
+            <tbody style="margin: 5px;">
+                <tr class="file file-row">
+                    <td class="item-name">
+                        <a href="#">20220413</a>
+                    </td>
+                    <td class="message">
+                        <a href="#">update doc</a>
+                    </td>
+                    <td class="file-size">13.39 KB</td>
+                    <td class="timestamp"><time datetime="2022-04-22T09:42:49+0800">3 days ago</time></td>
+                </tr>
+                <tr class="file file-row">
+                    <td class="item-name">
+                        <a href="#">artifactory.md</a>
+                    </td>
+                    <td class="message">
+                        <a href="#">Update artifactory</a>
+                    </td>
+                    <td class="file-size">2.23 KB</td>
+                    <td class="timestamp"><time datetime="2022-04-25T16:01:01+0800">1 hour ago</time></td>
+                </tr>
+                <tr class="file file-row">
+                    <td class="item-name"><a href="#">blackduck.md</a></td>
+                    <td class="message"><a href="#">update doc</a> </td>
+                    <td class="file-size">756 B</td>
+                    <td class="timestamp"><time datetime="2022-04-22T09:42:49+0800">3 days ago</time></td>
+                </tr>
+                <tr class="file file-row">
+                    <td class="item-name"><a href="#">config.bak.xml</a></td>
+                    <td class="message"><a href="#">update doc</a></td>
+                    <td class="file-size">5.98 KB</td>
+                    <td class="timestamp"><time datetime="2022-04-22T09:42:49+0800">3 days ago</time></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="pagination" style="display: inline-block;margin-top: 60px;margin: 3px;padding: 5px;">
+        <li><a href="#">|&lt;</a></li>
+        <li><a href="#">&lt;&lt;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#" class="active">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">&gt;&gt;</a></li>
+        <li><a href="#">&gt;|</a></li>
+    </ul>
+
+</body>
+
+</html>
